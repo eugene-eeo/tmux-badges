@@ -19,6 +19,22 @@ set -g status-right ' #{badge_py} #{badge_awesome} '
 
 ![sec(c)](screenshot.png)
 
+### Installation
+
+The recommended way is to use TPM.
+
+```
+set -g @plugin 'eugene-eeo/tmux-badges'
+```
+
+### Manually
+
+```
+$ git clone https://github.com/eugene-eeo/tmux-badges.git ~/clone/path
+$ echo 'run-shell ~/clone/path/badges.tmux' >> ~/.tmux.conf
+$ tmux source-file ~/.tmux.conf
+```
+
 ### Related
 
  - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
