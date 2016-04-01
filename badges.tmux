@@ -30,16 +30,16 @@ generate() {
     local fg_color=$(tmux_option "${option}_fg" "$default_fg")
     local bg_color=$(tmux_option "${option}_fg" "$default_bg")
 
-    return "#[fg=$fg_color] $name $[bg=$bg_color] #($cmd) #[fg=default]#[bg=default]"
+    return "#[fg=$fg_color]$[bg=$bg_color] $name #[bg=colour236] #($cmd) #[fg=default]#[bg=default]"
 }
 
 
 highlight() {
     local option="$1"
     local status="$2"
+    local genstr="$3"
     local status_value=$(tmux_option "$status")
     local place_holder="${option}_badge"
-    local str=$(generate "$option")
     tmux set-option -gq "$status" "${status_value/$place_holder/$str}"
 }
 
@@ -47,8 +47,9 @@ highlight() {
 main() {
     for badge in badges; do
         local option=$(generate "$badge")
-        highlight "status-right" "$option"
-        highlight "status-left"  "$option"
+        local genstr=$(generate "$option")
+        highlight "status-right" "$option" "$genstr"
+        highlight "status-left"  "$option" "$genstr"
     done
 }
 main
