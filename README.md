@@ -17,3 +17,8 @@ set -g status-right ' #{badge_py} #{badge_awesome} '
 ```
 
 ![sec(c)](screenshot.png)
+
+### Related
+
+ - [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
+ - [tmux-online-status](https://github.com/tmux-plugins/tmux-online-status)
