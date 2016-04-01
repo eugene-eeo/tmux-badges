@@ -9,6 +9,7 @@ set -g @badge_py     'py'
 set -g @badge_py_fg  'default'
 set -g @badge_py_bg  'colour25'
 set -g @badge_py_fmt '#(pyenv version | cut -f 1 -d " ")'
+set -g @badge_py_secondary_bg 'colour236'
 
 set -g @badge_awesome 'awesome'
 set -g @badge_awesome_fmt 'true'
