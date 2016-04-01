@@ -19,18 +19,18 @@ tmux_option() {
 
 
 badges() {
-    tmux show-option -g | cut -f 1 -d ' ' | grep '@badge' | grep -v '_\(fg\|bg\|cmd\)'
+    tmux show-option -g | cut -f 1 -d ' ' | grep '@badge' | grep -v '_\(fg\|bg\|fmt\)'
 }
 
 
 generate() {
     local option=$1
     local name=$(tmux_option "$option")
-    local comm=$(tmux_option "${option}_cmd")
+    local comm=$(tmux_option "${option}_fmt")
     local fg_color=$(tmux_option "${option}_fg" "$default_fg")
     local bg_color=$(tmux_option "${option}_bg" "$default_bg")
 
-    echo "#[fg=$fg_color,bg=$bg_color] $name #[bg=colour236] #(${comm}) #[fg=default]#[bg=default]"
+    echo "#[fg=$fg_color,bg=$bg_color] $name #[bg=colour236] $comm #[fg=default]#[bg=default]"
 }
 
 
