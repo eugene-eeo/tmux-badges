@@ -30,9 +30,10 @@ generate() {
     local comm=$(tmux_option "${option}_fmt")
     local fg_color=$(tmux_option "${option}_fg" "$default_fg")
     local bg_color=$(tmux_option "${option}_bg" "$default_bg")
+    local secondary_fg=$(tmux_option "${option}_secondary_fg" "$fg_color")
     local secondary_bg=$(tmux_option "${option}_secondary_bg" "$default_secondary_bg")
 
-    echo "#[fg=$fg_color,bg=$bg_color] $name #[bg=$secondary_bg] $comm #[fg=default]#[bg=default]"
+    echo "#[fg=$fg_color,bg=$bg_color] $name #[fg=$secondary_fg,bg=$secondary_bg] $comm #[fg=default]#[bg=default]"
 }
 
 
